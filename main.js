@@ -7,5 +7,10 @@ if (navigator.serviceWorker) {
 }
 
 navigator.serviceWorker.ready.then((res) =>
-	res.active.postMessage("Hello, world!")
+	res.active.postMessage("Hello, I am the main file!")
 );
+
+navigator.serviceWorker.addEventListener("message", (e) => {
+	console.log("We received a message from the service worker!");
+	console.log(e.data);
+});
